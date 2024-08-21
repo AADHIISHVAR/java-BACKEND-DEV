@@ -18,10 +18,10 @@
         }
 
         .login-container {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.15);
             padding: 40px;
             border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
             backdrop-filter: blur(10px);
             text-align: center;
             max-width: 400px;
@@ -55,22 +55,42 @@
             background: rgba(255, 255, 255, 0.2);
             color: #fff;
             outline: none;
+            transition: background 0.3s ease;
+        }
+
+        .input-group input:hover,
+        .input-group input:focus {
+            background: rgba(255, 255, 255, 0.3);
         }
 
         .input-group input::placeholder {
             color: #bbb;
         }
 
-        .login-button {
-            width: 100%;
+        .button-group {
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .login-button, .signup-button {
+            width: 48%;
             padding: 12px;
             font-size: 1.2em;
             border: none;
             border-radius: 5px;
-            background: #ff7f50;
-            color: #ffffff;
             cursor: pointer;
             transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .login-button {
+            background: #ff7f50;
+            color: #ffffff;
+        }
+
+        .signup-button {
+            background: #4CAF50;
+            color: #ffffff;
         }
 
         .login-button:hover {
@@ -78,8 +98,12 @@
             transform: translateY(-2px);
         }
 
-        .login-button:active {
-            background: #ff4500;
+        .signup-button:hover {
+            background: #45a049;
+            transform: translateY(-2px);
+        }
+
+        .login-button:active, .signup-button:active {
             transform: translateY(0);
         }
 
@@ -98,15 +122,14 @@
     </style>
 </head>
 <body>
-	<%
-		response.setHeader("Cache-Control", "no-store, no-cache, must-revalidate");
-	    response.setHeader("Pragma", "no-cache");
-	    response.setDateHeader("Expires", 0);
-	%>
+    <%
+        response.setHeader("Cache-Control", "no-store, no-cache, must-revalidate");
+        response.setHeader("Pragma", "no-cache");
+        response.setDateHeader("Expires", 0);
+    %>
     <div class="login-container">
         <h2>Login</h2>
         <form action="login" method="post">
-        	
             <div class="input-group">
                 <label for="username">Username</label>
                 <input type="text" id="username" name="username" placeholder="Enter your username" required>
@@ -115,9 +138,17 @@
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" placeholder="Enter your password" required>
             </div>
-            <button type="submit" class="login-button">Login</button>
-            <a href="#" class="forgot-password">Forgot Password?</a>
+            <div class="button-group">
+                <button type="submit" class="login-button">Login</button>
+            </div>
         </form>
+        
+        <div class="button-group">
+               <!--  <button type="submit" class="signup-button">Sign Up</button>  -->
+        	<a href="signup.jsp" class="signup-button">Sign Up</a>
+        </div>
+        
+        <a href="#" class="forgot-password">Forgot Password?</a>
     </div>
 </body>
 </html>

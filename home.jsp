@@ -125,8 +125,10 @@
 
     <header class="header">
         <h1>Welcome to Aadhi's Java Hub</h1>
-        <p>Crafting Java solutions, one line of code at a time.</p>
-        <a href="login.jsp" class="login-button">Login</a>
+        <p>Crafting Java solutions, one line of code at a unit of time.</p>
+        <form action="login" method="post">
+        	<a href="login.jsp" class="login-button">Login</a>
+        </form>
     </header>
     <div class="content">
         <section class="intro">
